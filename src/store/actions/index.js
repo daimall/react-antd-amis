@@ -1,4 +1,4 @@
-import { login, logout } from "./auth";
+import { login, getToken, logout } from "./auth";
 import { getUserInfo, setUserToken, setUserInfo, resetUser } from "./user";
 import { toggleSiderBar, toggleSettingPanel } from "./app";
 import { changeSetting } from "./settings";
@@ -8,6 +8,7 @@ import { addBug } from "./monitor";
 export {
   login,
   logout,
+  getToken,
   getUserInfo,
   setUserToken,
   setUserInfo,

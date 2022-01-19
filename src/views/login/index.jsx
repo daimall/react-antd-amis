@@ -18,7 +18,7 @@ const Login = (props) => {
     login(username, password)
       .then((data) => {
         message.success("登录成功");
-        handleUserInfo(data.token);
+        handleUserInfo(data.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -52,7 +52,7 @@ const Login = (props) => {
   };
 
   if (token) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
   return (
     <DocumentTitle title={"用户登录"}>
@@ -90,7 +90,7 @@ const Login = (props) => {
                     message: "请输入密码",
                   },
                 ],
-                initialValue: "123456", // 初始值
+                initialValue: "", // 初始值
               })(
                 <Input
                   prefix={
@@ -109,13 +109,6 @@ const Login = (props) => {
               >
                 登录
               </Button>
-            </Form.Item>
-            <Form.Item>
-              <span>账号 : admin 密码 : 随便填</span>
-              <br />
-              <span>账号 : editor 密码 : 随便填</span>
-              <br />
-              <span>账号 : guest 密码 : 随便填</span>
             </Form.Item>
           </Spin>
         </Form>

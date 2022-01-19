@@ -10,20 +10,20 @@ import menuList from "@/config/menuConfig";
 const { Content } = Layout;
 
 const getPageTitle = (menuList, pathname) => {
-  let title = "Ant Design Pro";
+  let title = "SSO";
   let item = getMenuItemInMenuListByProperty(menuList, "path", pathname);
   if (item) {
-    title = `${item.title} - Ant Design Pro`;
+    title = `${item.title} - SSO`;
   }
   return title;
 };
 
 const LayoutContent = (props) => {
-  const { role, location } = props;
+  const { location } = props;
   const { pathname } = location;
   const handleFilter = (route) => {
     // 过滤没有权限的页面
-    return role === "admin" || !route.roles || route.roles.includes(role);
+    return true
   };
   return (
     <DocumentTitle title={getPageTitle(menuList, pathname)}>
@@ -36,7 +36,7 @@ const LayoutContent = (props) => {
             exit={false}
           >
             <Switch location={location}>
-              <Redirect exact from="/" to="/dashboard" />
+              <Redirect exact from="/" to="/" />
               {routeList.map((route) => {
                 return (
                   handleFilter(route) && (

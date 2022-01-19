@@ -16,11 +16,11 @@ const LayoutHeader = (props) => {
     avatar,
     sidebarCollapsed,
     logout,
-    getUserInfo,
+    // getUserInfo,
     showSettings,
     fixedHeader,
   } = props;
-  token && getUserInfo(token);
+  // token && getUserInfo(token);
   const handleLogout = (token) => {
     Modal.confirm({
       title: "注销",
@@ -43,17 +43,8 @@ const LayoutHeader = (props) => {
   };
   const menu = (
     <Menu onClick={onClick}>
-      <Menu.Item key="dashboard">
-        <Link to="/dashboard">首页</Link>
-      </Menu.Item>
-      <Menu.Item key="project">
-        <a
-          target="_blank"
-          href="https://github.com/NLRX-WJC/react-antd-admin-template"
-          rel="noopener noreferrer"
-        >
-          项目地址
-        </a>
+      <Menu.Item key="clients">
+        <Link to="/">首页</Link>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="logout">注销</Menu.Item>

@@ -23,14 +23,14 @@ export default function app(state = initState, action) {
       return {
         ...state,
         taglist: [
-          ...state.taglist.filter((item) => item.path === "/dashboard"),
+          ...state.taglist.filter((item) => item.path === "/"),
         ],
       };
     case types.TAGSVIEW_CLOSE_OTHER_TAGS:
       return {
         ...state,
         taglist: [
-          ...state.taglist.filter((item) => item.path === "/dashboard" || item === action.tag),
+          ...state.taglist.filter((item) => item.path === "/" || item === action.tag),
         ],
       };
     default:

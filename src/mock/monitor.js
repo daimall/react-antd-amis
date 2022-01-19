@@ -1,8 +1,8 @@
 export default {
   monitor: (config) => {
     return {
-      status: 1,
-      message: "monitor",
+      status: 0,
+      msg: "monitor",
     };
   }
 }

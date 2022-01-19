@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function tracker(data) {
   return request({
-    url: "/monitor",
+    url: "/api/monitor",
     method: "post",
     data,
   });

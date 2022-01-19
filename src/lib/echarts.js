@@ -1,5 +1,5 @@
 // 引入 ECharts 主模块
-import echarts from 'echarts/lib/echarts'
+import * as echarts from 'echarts/lib/echarts'
 // 引入提示框和标题组件
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/title'

@@ -7,7 +7,7 @@ export const getUserInfo = (token) => (dispatch) => {
       .then((response) => {
         const { data } = response;
         if (data.status === 0) {
-          const userInfo = data.userInfo;
+          const userInfo = data.data;
           dispatch(setUserInfo(userInfo));
           resolve(data);
         } else {

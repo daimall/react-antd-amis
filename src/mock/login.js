@@ -11,20 +11,28 @@ const users = {
     name: "难凉热血",
     avatar: "https://s1.ax1x.com/2020/04/28/J5hUaT.jpg",
     description: "拥有系统内所有菜单和路由权限",
+    isAdmin: false,
+    menus: [
+      { "menuId": "menuid1", "b": "vb" },
+      { "menuId": "menuid2", "b": "vb" },
+      { "menuId": "menuid3", "b": "vb" },
+      { "menuId": "clients-management-menu", "b": "vb" },
+    ],
+    roles: ["roleA", "roleB"]
   },
   "editor-token": {
     id: "editor",
     role: "editor",
     name: "编辑员",
     avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-    description:"可以看到除户管理页面之外的所有页面",
+    description: "可以看到除户管理页面之外的所有页面",
   },
   "guest-token": {
     id: "guest",
     role: "guest",
     name: "游客",
     avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
-    description:"仅能看到Dashboard、开发文档、权限测试和关于作者四个页面",
+    description: "仅能看到Dashboard、开发文档、权限测试和关于作者四个页面",
   },
 };
 
@@ -35,12 +43,12 @@ export default {
     if (!token) {
       return {
         status: 1,
-        message: "用户名或密码错误",
+        msg: "用户名或密码错误",
       };
     }
     return {
       status: 0,
-      token,
+      data: token,
     };
   },
   userInfo: (config) => {
@@ -49,12 +57,12 @@ export default {
     if (!userInfo) {
       return {
         status: 1,
-        message: "获取用户信息失败",
+        msg: "获取用户信息失败",
       };
     }
     return {
       status: 0,
-      userInfo,
+      data: userInfo,
     };
   },
   getUsers: () => {
@@ -114,6 +122,12 @@ export default {
     return {
       status: 0,
       data: "success",
+    };
+  },
+  token: (_) => {
+    return {
+      status: 0,
+      data: "admin-token",
     };
   },
 };

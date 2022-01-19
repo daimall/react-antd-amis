@@ -25,13 +25,18 @@ class Meun extends Component {
 
   // filterMenuItem用来根据配置信息筛选可以显示的菜单项
   filterMenuItem = (item) => {
-    const { roles } = item;
-    const { role } = this.props;
-    if (role === "admin" || !roles || roles.includes(role)) {
+    const { menus, isAmdin} = this.props;
+    if (isAmdin) {
+       return true // 管理员
+    }
+    if (!!menus.find((menu) => menu.menuId === item.key)) {
       return true;
-    } else if (item.children) {
+    } 
+    if (item.children) {
       // 如果当前用户有此item的某个子item的权限
-      return !!item.children.find((child) => roles.includes(child.role));
+      return !!item.children.find((child) => {
+        return !!menus.find((menu) => menu.menuId === child.key)
+      });
     }
     return false;
   };
@@ -97,7 +102,7 @@ class Meun extends Component {
     });
   };
 
-  handleMenuSelect = ({ key = "/dashboard" }) => {
+  handleMenuSelect = ({ key = "/" }) => {
     let menuItem = getMenuItemInMenuListByProperty(menuList, "path", key);
     this.props.addTag(menuItem);
   };

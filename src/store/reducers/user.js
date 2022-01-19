@@ -5,6 +5,9 @@ const initUserInfo = {
   role: "",
   avatar:"",
   token: getToken(),
+  isAdmin: false,
+  menus: [],
+  roles: []
 };
 export default function user(state = initUserInfo, action) {
   switch (action.type) {
@@ -19,6 +22,9 @@ export default function user(state = initUserInfo, action) {
         name: action.name,
         role: action.role,
         avatar: action.avatar,
+        isAdmin: action.isAdmin,
+        menus: action.menus,
+        roles: action.roles
       };
     case types.USER_RESET_USER:
       return {};
